@@ -25,13 +25,13 @@
 
       *---------------- COMPUTATION ----------------*
        01  WS-PRICE-PER-KWH     PIC 9(3).
-       01  WS-ELECTRIC-BILL     PIC 9(7)V99.
-       01  WS-SYSTEM-CHARGES    PIC 9(7)V99.
-       01  WS-TOTAL-BILL        PIC 9(7)V99.
+       01  WS-ELECTRIC-BILL     PIC 9(10)V99.
+       01  WS-SYSTEM-CHARGES    PIC 9(10)V99.
+       01  WS-TOTAL-BILL        PIC 9(10)V99.
 
       *---------------- FORMATTED OUTPUT ----------------*
-       01  WS-SYS-CHG-DISP      PIC Z,ZZZ.ZZ.
-       01  WS-TOTAL-DISP        PIC ZZ,ZZZ.ZZ.
+       01  WS-SYS-CHG-DISP      PIC ZZZ,ZZZ,ZZZ.ZZ.
+       01  WS-TOTAL-DISP        PIC ZZZ,ZZZ,ZZZ.ZZ.
 
       *---------------- CONTROL ----------------*
        01  WS-ANSWER            PIC X.
