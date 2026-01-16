@@ -1,0 +1,8 @@
+                                China Trust Bank
+                                   Makati City
+                               Customer's Account
+
+  Account         Account         Transaction         Account          Balance
+    No             Name             Name            Type Name
+2312941411 cj delos Santos           Withdrawal   Savings Deposit   3,999,999.50
+2143543565 Rafael Hans Ria           Deposit      Dollar Account    6,000,000.00
