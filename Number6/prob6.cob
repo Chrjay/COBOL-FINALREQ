@@ -30,16 +30,16 @@
            05 LOCNAME          PIC X(20).
            05 NUMIRREG         PIC 9(6).
            05 TOTFAC           PIC 9(6).
-           05 LARGESTUD        PIC 9(6) VALUE 0.
-           05 LARGEFAC         PIC 9(6) VALUE 0.
            05 ERR-MSG          PIC X(50).
        
        01 TEMP-DATA.
+           05 LARGESTUD        PIC 9(6) VALUE 0.
+           05 LARGEFAC         PIC 9(6) VALUE 0.
            05 LSTUDBRANCH      PIC X(20).
            05 LFACBRANCH       PIC X(20).
        
        01 CHECK-CONT.
-           05 EOFSW           PIC X VALUE 'Y'.
+           05 EOFSW           PIC X.
            05 FLAGSW          PIC X VALUE 'N'.
        
        01 H1.
@@ -168,6 +168,8 @@
            DISPLAY HEADER
            DISPLAY LAYOUT
 
+           INITIALIZE INPUT-DATA COMPUTE-DATA
+
            MOVE 'N' TO FLAGSW
            PERFORM UNTIL FLAGSW = 'Y'
                DISPLAY SCR-BCODE
@@ -222,8 +224,8 @@
 
            COMPUTE TOTFAC = NUMREGFAC-IN + NUMPTFAC-IN
 
-           IF LARGESTUD < NUMREG-IN
-               MOVE NUMREG-IN TO LARGESTUD
+           IF LARGESTUD < NUMSTUD-IN
+               MOVE NUMSTUD-IN TO LARGESTUD
                MOVE LOCNAME TO LSTUDBRANCH
            END-IF
 
@@ -232,11 +234,17 @@
                MOVE LOCNAME TO LFACBRANCH
            END-IF 
 
+           
+
            MOVE LOCNAME TO LOCNAME-OUT
            MOVE NUMCOURSE-IN TO NUMCOURSE-OUT
            MOVE NUMSTUD-IN TO NUMSTUD-OUT
            MOVE TOTFAC TO TOTFAC-OUT
            WRITE OUTREC FROM REC-OUT
+
+           MOVE 0 TO TOTFAC
+           MOVE 0 TO NUMIRREG
+           MOVE 0 TO NUMSTUD-IN
            
            MOVE 'N' TO FLAGSW
            MOVE SPACE TO EOFSW
@@ -248,8 +256,8 @@
                    MOVE SPACES TO ERR-MSG
                    DISPLAY SCR-ERROR
                ELSE 
-                   MOVE "ERROR: Y or N Only" TO SCR-ERROR
-                   DISPLAY ERROR
+                   MOVE "ERROR: Y or N Only" TO ERR-MSG
+                   DISPLAY SCR-ERROR
                END-IF 
            END-PERFORM.       
        FINISH-RTN.
@@ -257,7 +265,10 @@
            CLOSE POPUL-FILE.
 
            
-              
+
+
+               
+
 
            
        
