@@ -1,0 +1,7 @@
+                           BROWNOUT ELECTRIC COMPANY
+                                 BILLING REPORT
+
+  ACCOUNT            CUSTOMER            ACCOUNT     KWH     SYSTEM     TOTAL
+     NO                NAME                TYPE      USED   CHARGES     BILL
+
+ 3219482194  CJ Delos Santos            Industrial  456757  9,189.70  42,983.70
